@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- define content for your entire app inside the application.html.erb file,
+and it will appear on every page in your view folder. This is the layout of the web!-->
+
 <html>
   <head>
     <title>Nameofapp</title>
@@ -10,6 +13,20 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav>
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "About", simple_pages_about_path %></li>
+    <li><%= link_to "Contact", simple_pages_contact_path %></li>
+  </ul>
+</nav>
+
+    <%= yield %> <!-- the yield method inserts the contents of each page of your application into the site's layout.-->
+
+    <footer>
+      &copy; 2018 Bike Berlin
+    </footer>
+
   </body>
 </html>
