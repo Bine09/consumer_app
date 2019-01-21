@@ -1,4 +1,4 @@
 class SimplePagesController < ApplicationController
-  def index
+  def index  #methode called index
   end
 end
