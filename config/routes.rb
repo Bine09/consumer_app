@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
   get 'simple_pages/about'     # get the about site via the simple_pages controller
   get 'simple_pages/contact'
   get 'simple_pages/index'
