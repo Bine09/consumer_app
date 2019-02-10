@@ -49,18 +49,18 @@ It's been defined in the controller, which is why you can access it. .each  -->
 <br>
 
 <!--   <tbody>
-    <% @products.each do |product| %>
+    <%# @products.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.color %></td>
-        <td><%= product.price %></td>
-        <td><%= product.image_url %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= product.name %></td>
+        <td><%#= product.description %></td>
+        <td><%#= product.color %></td>
+        <td><%#= product.price %></td>
+        <td><%#= product.image_url %></td>
+        <td><%#= link_to 'Show', product %></td>
+        <td><%#= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
