@@ -1,3 +1,5 @@
+# each action corresponds to an HTML file in the views with the same name!!!
+
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
@@ -5,6 +7,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    # @test_variable= 42
   end               #corresponds to the index.html.erb page inside the views/products folder
 
 # Variables you define inside a controller method will be available inside the corresponding view file. Here,
@@ -15,6 +18,8 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
   end
+
+
 
   # GET /products/new
   def new
@@ -41,6 +46,9 @@ class ProductsController < ApplicationController
     end
   end
 
+
+
+
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
@@ -54,6 +62,8 @@ class ProductsController < ApplicationController
       end
     end
   end
+
+
 
   # DELETE /products/1
   # DELETE /products/1.json
