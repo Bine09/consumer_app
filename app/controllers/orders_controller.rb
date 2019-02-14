@@ -15,6 +15,4 @@ class OrdersController < ApplicationController    # The first line declares a cl
     def destroy
     end
 
-
-
 end
