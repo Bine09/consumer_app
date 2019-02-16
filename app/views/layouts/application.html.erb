@@ -26,36 +26,8 @@ and it will appear on every page in your view folder. This is the layout of the 
 
   <body class="bg-secondary">
 
+<%= render "shared/nav" %>
 
-    <nav class="navbar navbar-expand-lg bg-warning fixed-top" role="navigation" id="navbar-example">
-
-      <div class="navbar-brand btn"><i class="fas fa-recycle ">&nbsp;</i><i class="fas fa-bicycle"></i><%= link_to "", root_path, class:"font-weight-bold text-secondary"%></div> <!--navigation branding, a name or a logo of the company or person goes here.-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> <!--here all of your links and navigation components go-->
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto ">
-        <li class="nav-item btn">
-          <%= link_to "Home", root_path, class:"font-weight-bold text-secondary"%>
-        </li>
-
-        <li class="nav-item btn ">
-          <%= link_to "About", simple_pages_about_path, class:"font-weight-bold text-secondary" %>
-        </li>
-
-        <li class="nav-item btn ">
-          <%= link_to "Products", products_path, class:"font-weight-bold text-secondary" %>
-        </li>
-
-        <li class="nav-item btn">
-          <%= link_to "Contact", simple_pages_contact_path, class:"font-weight-bold text-secondary" %>
-        </li>
-      </ul>
-    </div>
-  </nav> <!-- end nav container -->
-
-  <!-- end nav bar -->
 
 
     <!-- <nav>
