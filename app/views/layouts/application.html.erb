@@ -30,15 +30,6 @@ and it will appear on every page in your view folder. This is the layout of the 
 <%= render "shared/nav" %>
 
 
-
-    <!-- <nav>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About", simple_pages_about_path %></li>
-    <li><%= link_to "Contact", simple_pages_contact_path %></li>
-  </ul>
-</nav> -->
-
     <%= yield %> <!-- the yield method inserts the contents of each page of your application into the site's layout. You don't have to include the whole structure at every page!-->
 
     <footer class="fixed-bottom">

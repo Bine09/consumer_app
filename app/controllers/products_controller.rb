@@ -1,4 +1,4 @@
-# each action corresponds to an HTML file in the views with the same name!!!
+   # each action corresponds to an HTML file in the views with the same name!!!
 
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]

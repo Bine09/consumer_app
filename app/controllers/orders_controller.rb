@@ -1,12 +1,12 @@
 class OrdersController < ApplicationController    # The first line declares a class that inherits from ApplicationControlle,
   #meaning it has access to all the methods inside your application_controller.rb file
   def index   # list of multiple orders
-    @orders = Order.all
+    @orders = Order.includes(:product).all
+    # @orders = Order.includes(:product).all
     end
 
     def show  #show order
     @order = Order.find(params[:id])
-
     end
 
     def new
