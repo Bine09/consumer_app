@@ -1,5 +1,6 @@
 <h2>Featured Product:</h2>
-
+<br>
+<br>
 <div class="container">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -10,8 +11,8 @@
 
   <div class="carousel-inner">
   <% @products.each do |product| %>
-  <div class="carousel-item<%= " active" if product == @products.first %>">
-    <%= image_tag(product.image_url , height: '500', width: '1200') unless product.image_url.nil?%>
+  <div class="carousel-item <%= " active" if product == @products.first %>">
+      <img class="img-fluid" <%= image_tag(product.image_url , height: '500px', width: '800px') unless product.image_url.nil?%>
 
     <div class="carousel-caption d-none d-md-block">
       <%= product.name %>

@@ -8,8 +8,12 @@ h1{
    font-weight: bold;
  }
 
+ h2 {
+   text-align: center;
+ }
+
  body{
-    padding-top:5%;
+    padding-top:9%;
   }
 
 footer{
@@ -17,4 +21,18 @@ footer{
   text-align: center;
   color: white;
   margin-bottom: 1.5%;
+}
+
+
+.carousel-item{
+    // display: block !important;
+    text-align: center;
+
+}
+
+.carousel-caption {
+    color: darkred;
+    font-family: 'Fahkwang', Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
 }
