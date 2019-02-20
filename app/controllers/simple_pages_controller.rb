@@ -6,7 +6,7 @@ class SimplePagesController < ApplicationController
   # end
 
   def landing_page
-  @products = Product.limit(3)
+  @products = Product.order("RANDOM()").limit(3) # "RANDOM()" will be disallowd in Rails 6.0
   end
 
 
