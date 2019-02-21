@@ -1,4 +1,4 @@
-<h2>Featured Product:</h2>
+<h1>Featured Product</h1>
 <br>
 <br>
 <div class="container">
@@ -12,13 +12,17 @@
   <div class="carousel-inner">
   <% @products.each do |product| %>
   <div class="carousel-item <%= " active" if product == @products.first %>">
-      <%= image_tag(product.image_url , height: '500px', width: '800px', class: 'img-fluid') unless product.image_url.nil?%>
+
+      <%= image_tag(product.image_url, height: '500px', width: '800px', class: 'img-fluid') unless product.image_url.nil?%>
 
     <div class="carousel-caption d-none d-md-block">
-      <%= product.name %>
+      <%= link_to product.name, product %>
     </div>
   </div>
   <% end %>
+
+
+
 </div>
 
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -23,11 +23,16 @@ footer{
   margin-bottom: 1.5%;
 }
 
+#abouttext{
+  text-align: center;
+  color:white;
+  font-size: 1.2em;
+}
+
 
 .carousel-item{
     // display: block !important;
     text-align: center;
-
 }
 
 .carousel-caption {
@@ -35,4 +40,14 @@ footer{
     font-family: 'Fahkwang', Helvetica, Arial, sans-serif;
     font-size: 1.5em;
     font-weight: bold;
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  text-align:center;
+  width: 18rem;
+  background-color: light grey;
+
 }

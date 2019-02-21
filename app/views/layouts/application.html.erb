@@ -10,6 +10,7 @@ and it will appear on every page in your view folder. This is the layout of the 
     <!-- Because CSS is cascading, we want to apply the styles from Bootstrap first, then add any custom styles with our own CSS. -->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>  <!--The styles you add in your .scss files will automatically be applied to the application.css file, which acts like a “master” CSS file.
         	                                                                                     The code, which is in the application.html.erb file, consolidates all the .scss files into application.css:-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> <!--same with javascript-->

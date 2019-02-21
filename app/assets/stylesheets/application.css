@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+.col-form-label {
+  font-family: 'Amatic SC', cursive;
+  font-size: 2em;
+  color: white;
+  font-weight: 600;
+}
+
+h1 {
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  font-size: 4em;
+  color: white;
+  font-weight: 600;
+}
+
+.container{
+  text-align: center;
+  color: white;
+  font-size: 1.3em;
+}

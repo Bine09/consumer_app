@@ -2,6 +2,7 @@
 
 
 <%= form_with(model: product, local: true) do |form| %>
+<!-- In this case, the product will either be a new Product instance or an existing one loaded from the database, depending on whether you are viewing the new or the edit page. -->
   <% if product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -14,32 +15,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group row justify-content-center">
+    <%= form.label :name, class:'col-sm-2 col-form-label' %>
+    <%= form.text_field :name, class:'col-sm-4'  %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group row justify-content-center" >
+    <%= form.label :description, class:'col-sm-2 col-form-label' %>
+    <%= form.text_area :description, class:'col-sm-4' %>
   </div>
 
-  <div class="field">
-    <%= form.label :color %><br>
-    <%= form.text_field :color %>
+  <div class="form-group row justify-content-center">
+    <%= form.label :color, class:'col-sm-2 col-form-label'  %><br>
+    <%= form.text_field :color, class:'col-sm-4'  %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %><br>
-    <%= form.text_field :price %>
+  <div class="form-group row justify-content-center">
+    <%= form.label :price, class:'col-sm-2 col-form-label'  %><br>
+    <%= form.text_field :price, class:'col-sm-4'  %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
+  <div class="form-group row justify-content-centerrow justify-content-center">
+    <%= form.label :image_url, class:'col-sm-2 col-form-label'  %>
+    <%= form.text_field :image_url, class:'col-sm-4'  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="action row justify-content-center">
+    <%= form.submit "Submit", class: 'btn btn-info col-md-2'  %>
   </div>
+
 <% end %>

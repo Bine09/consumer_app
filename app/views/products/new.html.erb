@@ -6,3 +6,8 @@
 <!-- The form being referenced here is a type of view called a partial. It’s short for “partial template”, meaning it’s a part of a view that is typically shared across several views-->
 
 <%= link_to 'Back', products_path %>
+
+
+<!-- Here, product is the 'parameter' that the partial expects, and @product is the value passed in from the controller.
+While partials always have access to all @ variables visible to the calling view (in this case new.html.erb or edit.html.erb),
+best practices dictate that the parameterized form used here be employed. -->

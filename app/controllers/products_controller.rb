@@ -6,7 +6,15 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:q]
+    search_term = params[:q]
+    @products = Product.search(search_term)
+     # return our filtered list here
+   else
+     @products = Product.all
+   end
+
+    # redirect_to simple_pages_landing_page_path
     # @test_variable= 42
   end               #corresponds to the index.html.erb page inside the views/products folder
 

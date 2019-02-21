@@ -9,5 +9,8 @@ class SimplePagesController < ApplicationController
   @products = Product.order("RANDOM()").limit(3) # "RANDOM()" will be disallowd in Rails 6.0
   end
 
+  # def about
+  #   redirect_to simple_pages_contact_path
+  # end
 
 end
