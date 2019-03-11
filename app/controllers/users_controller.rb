@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]    #This type of method call is called a callback. The before_action part is called a filter.
+  load_and_authorize_resource                                         #What it means is, before any action is run in this controller, call the method set_user.
+                                                                      #The next parameter means that it should only be run for the actions inside that array: show, edit, update, and destroy.
 
   # GET /users
   # GET /users.json
@@ -64,7 +66,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(params[:id])        # this method takes the ID parameter, fetches a user record from that database, and sets the @user variable
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

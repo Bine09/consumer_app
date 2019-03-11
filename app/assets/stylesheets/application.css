@@ -34,11 +34,11 @@ h1 {
   font-size: 1.3em;
 }
 
-.alert {
+#alert {
   color: darkred;
   font-size: 1em;
 }
 
-.notice {
+#notice2 {
   color: darkred;
 }

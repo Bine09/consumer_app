@@ -24,15 +24,20 @@ and it will appear on every page in your view folder. This is the layout of the 
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
   </head>
 
   <body class="bg-secondary">
 
     <div class="container">
-    <p class= "notice"><%= notice %><p>
-    <p class= "alert"><%= alert %><p>
-      
+      <% if notice %>
+      <p id="notice2" class="alert alert-primary"><%= notice %></p>
+      <% end %>
+      <% if alert %> <!--It makes sense to add notices and alerts to your layout since you use them on multiple pages and might actually change redirects and links at some point.-->
+      <p id="alert" class="alert alert-primary"><%= alert %></p>
+      <% end %>
     </div>
+
 <%= render "shared/nav" %>
 
 
@@ -43,8 +48,11 @@ and it will appear on every page in your view folder. This is the layout of the 
       <span>&copy; 2018 Bike Berlin</span>
 
     </footer>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   </body>
 </html>

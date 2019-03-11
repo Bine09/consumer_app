@@ -61,4 +61,6 @@ group :production do
   gem 'sendgrid-ruby'
 end
 
+gem 'cancancan', '~> 2.0'
+
 gem 'devise'
