@@ -2,7 +2,7 @@
 <a href="#"><h4><%= product.name %></h4></a>
 <p id="descriptionField"><%= product.description %></p>
 <p id="colorField"><%= product.color %></p>
-<p id="imageStyle"><%= image_tag(product.image_url, class: "img-fluid") unless product.image_url.nil? %></p>
+<p id="imageStyle"><%= image_tag(product.image_url, class: "img-fluid img-thumbnail") unless product.image_url.nil? %></p>
 <!-- added placeholder for imageurl that are in the folder images-->
 <strong id="bikeprice"><%= product.price %>,-€</strong>
 <br>
