@@ -2,60 +2,78 @@
 
 <p id="notice"><%= notice %></p>
 
-  <div class="jumbotron">
-    <div class="row">
-        <div class="col-sm">
-          <strong>Name:</strong>
-          <%= @product.name %>
-        </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm">
-        <strong>Description:</strong>
-        <%= @product.description %>
-      </div>
-    </div>
-
-      <div class="row">
-        <div class="col-sm">
-          <strong>Color:</strong>
-          <%= @product.color %>
-        </div>
-      </div>
-
-        <div class="row">
-            <div class="col-sm">
-          <strong><i class="fas fa-euro-sign"></i> Price:</strong>
-          <%= @product.price %>
-        </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm">
-          <strong>Image url:</strong>
-          <%= @product.image_url %>
-        </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm">
-          <strong><i class="far fa-comment-alt"></i> Comments:</strong>
-          <%= @product.highest_rating_comment %>
-        </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm">
-          <strong><i class="far fa-comment-alt"></i> Comments:</strong>
-          <%= @product.lowest_rating_comment %>
-        </div>
-      </div>
-
-        <div class="row">
-            <div class="col-sm">
-              <%= link_to 'Edit', edit_product_path(@product), :class => "link", class:'text-dark' %> |
-              <%= link_to 'Back', products_path, :class => "link", class:'text-dark'  %>
-        </div>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-sm">
+      <strong>Name:</strong>
+      <%= @product.name %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <strong>Description:</strong>
+      <%= @product.description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <strong>Color:</strong>
+      <%= @product.color %>
+    </div>
+  </div>
+
+  <div class="row">
+        <div class="col-sm">
+      <strong><i class="fas fa-euro-sign"></i> Price:</strong>
+      <%= @product.price %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+    <p id="imageStyle"><%= image_tag(@product.image_url, class: "img-fluid img-thumbnail") unless @product.image_url.nil? %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <strong>Average Rating:</strong>
+      <div class="rated" data-score="<%= @product.average_rating %>"></div>
+    </div>
+  </div>
+
+
+  <!-- if there is no comment highest_rating_comment will be nil. If so highest_rating_comment.body would crash.  -->
+  <% if @product.highest_rating_comment.nil? %>
+  <div class="row">
+      <div class="col-sm">
+      <strong><i class="far fa-comment-alt"></i> No Comments!</strong>
+    </div>
+  </div>
+  <% else %>
+  <div class="row">
+    <div class="col-sm">
+      <strong><i class="far fa-comment-alt"></i> Highest rating comment:</strong>
+      <%= @product.highest_rating_comment.body %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <strong><i class="far fa-comment-alt"></i> Lowest rating comment:</strong>
+      <%= @product.lowest_rating_comment.body %>
+    </div>
+  </div>
+  <% end %>
+
+    <div class="row">
+        <div class="col-sm">
+          <%= link_to 'Edit', edit_product_path(@product), :class => "link", class:'text-dark' %> |
+          <%= link_to 'Back', products_path, :class => "link", class:'text-dark'  %>
+        </div>
+    </div>
+
+</div>
+<%= render 'comments' %>
+<%= render 'new_comment' %>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
   resources :users
-  resources :products
+
+  resources :products do
+    resources :comments
+  end  #What nested resources allow us to do is to connect comment s to products
+
   get 'simple_pages/about'     # get the about site via the simple_pages controller
   get 'simple_pages/contact'
   get 'simple_pages/index'

@@ -13,6 +13,11 @@ and it will appear on every page in your view folder. This is the layout of the 
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>  <!--The styles you add in your .scss files will automatically be applied to the application.css file, which acts like a “master” CSS file.
         	                                                                                     The code, which is in the application.html.erb file, consolidates all the .scss files into application.css:-->
+
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> <!--same with javascript-->
 
     <!-- We'll link our Bootstrap JavaScript file, as well, after the javascript_include_tag because Bootstrap depends on jQuery, which is loaded with all the other JavaScript. -->
@@ -31,7 +36,7 @@ and it will appear on every page in your view folder. This is the layout of the 
 
     <div class="container">
       <% if notice %>
-      <p id="notice2" class="alert alert-primary"><%= notice %></p>
+      <p id="notice" class="alert alert-primary"><%= notice %></p>
       <% end %>
       <% if alert %> <!--It makes sense to add notices and alerts to your layout since you use them on multiple pages and might actually change redirects and links at some point.-->
       <p id="alert" class="alert alert-primary"><%= alert %></p>
@@ -50,9 +55,6 @@ and it will appear on every page in your view folder. This is the layout of the 
     </footer>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   </body>
 </html>
