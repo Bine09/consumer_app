@@ -2,7 +2,9 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="jumbotron">
+<div class="jumbotron ">
+<div class="d-flex flex-column">
+
   <div class="row">
     <div class="col-sm">
       <strong>Name:</strong>
@@ -33,9 +35,10 @@
 
   <div class="row">
     <div class="col-sm">
-    <p id="imageStyle"><%= image_tag(@product.image_url, class: "img-fluid img-thumbnail") unless @product.image_url.nil? %></p>
+    <p id="imagedetailsite"><%= image_tag(@product.image_url, class: "img-fluid img-thumbnail") unless @product.image_url.nil? %></p>
     </div>
   </div>
+
   <div class="row">
     <div class="col-sm">
       <strong>Average Rating:</strong>
@@ -73,7 +76,17 @@
           <%= link_to 'Back', products_path, :class => "link", class:'text-dark'  %>
         </div>
     </div>
-
+  </div>
 </div>
-<%= render 'comments' %>
-<%= render 'new_comment' %>
+
+    <div class="container">
+      <div class="row">
+      <div class="col">
+      <%= render 'new_comment' %>
+      </div>
+
+      <div class="col">
+      <%= render 'comments' %>
+      </div>
+    </div>
+  </div>
