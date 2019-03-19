@@ -64,3 +64,5 @@ end
 gem 'cancancan', '~> 2.0'
 
 gem 'devise'
+
+gem 'will_paginate', '~> 3.1.0'

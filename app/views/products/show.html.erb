@@ -2,6 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
+
 <div class="jumbotron ">
 <div class="d-flex flex-column">
 
@@ -86,7 +87,20 @@
       </div>
 
       <div class="col">
+          <div class="card">
+                <div class="card-header bg-warning">
+                <p><%= will_paginate @comments, class: 'bg-warning' %></p>
+              </div>
+        </div>
+
       <%= render 'comments' %>
-      </div>
-    </div>
+
+
+
+    <!-- <div class="digg_pagination">
+    <div class="page_info"> -->
+
+
   </div>
+</div>
+</div>

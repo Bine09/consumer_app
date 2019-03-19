@@ -1,5 +1,6 @@
 <!-- Notice the file name starts with an underscore (_). Partials are always named using an underscore at the beginning of the filename. -->
 
+<!-- If a user tries to enter invalid data into the form, the validations will flash an appropriate error message to a user and reload the form page.  -->
 
 <%= form_with(model: product, local: true) do |form| %>
 <!-- In this case, the product will either be a new Product instance or an existing one loaded from the database, depending on whether you are viewing the new or the edit page. -->
