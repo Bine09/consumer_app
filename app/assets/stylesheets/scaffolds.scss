@@ -56,12 +56,13 @@ div {
   padding: 4px 4px;
   background-color: #C4400A;
   display: table;
+  text-align: center;
 }
 
-.alert-danger {
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-block;
+ .alert-danger {
+   position:relative;
+  margin: auto auto;
+  // display: inline-block;
   width: 600px;
   border: 2px;
   padding: 7px 7px;
@@ -80,9 +81,10 @@ div {
     text-align: center;
     font-weight: bold;
     color:black;
-    display: inline-block;
+    // display: inline-block;
     padding: 5px 75px;
     font-size: 1em;
+    margin: auto auto;
 
   }
 
