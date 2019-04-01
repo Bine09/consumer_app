@@ -53,35 +53,40 @@ div {
 .field_with_errors {
   margin-left: auto;
   margin-right: auto;
-  padding: 2px;
-  background-color: red;
+  padding: 4px 4px;
+  background-color: #C4400A;
   display: table;
 }
 
-#error_explanation {
+.alert-danger {
   margin-left: auto;
   margin-right: auto;
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px 7px 0;
+  display: inline-block;
+  width: 600px;
+  border: 2px;
+  padding: 7px 7px;
   margin-bottom: 20px;
-  background-color: white;
+  color:black;
+  background-color: #C4400A;
 
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px -7px 0;
-    background-color: #c00;
-    color: #fff;
-  }
-
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
 }
+
+.alert-warning {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+  .container h2 {
+    text-align: center;
+    font-weight: bold;
+    color:black;
+    display: inline-block;
+    padding: 5px 75px;
+    font-size: 1em;
+
+  }
+
+
 
 label {
   display: block;
