@@ -66,3 +66,7 @@ gem 'cancancan', '~> 2.0'
 gem 'devise'
 
 gem 'will_paginate', '~> 3.1.0'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+end
