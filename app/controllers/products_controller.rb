@@ -28,6 +28,8 @@ class ProductsController < ApplicationController
     @comments = @product.comments.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")  #paginate comments with default value 3
   end
 
+  
+
 
   # GET /products/new
   def new

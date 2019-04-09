@@ -15,6 +15,12 @@ class CommentsController < ApplicationController
     redirect_to product
   end
 
+  # 
+  # def new
+  #  @newcomment=Comment.new
+  #  end
+
+
 private
 
   def comment_params
@@ -22,3 +28,6 @@ private
   end
 
 end
+
+
+#The MVC logic in Rails is that controllers pass instance variables to the views. !!!!

@@ -13,7 +13,6 @@ class Product < ApplicationRecord  #means that your product class is a subclass 
     end
   end
 
-  
 
 
   def highest_rating_comment

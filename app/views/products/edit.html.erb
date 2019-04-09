@@ -1,10 +1,16 @@
 <!-- consits of an action that display a view to the user. Edit displays a form for entering data. -->
 
+
+
 <h1>Editing Product</h1>
 <br>
 <br>
 
 <%= render 'form', product: @product %>
-
+<br>
+<br>
+<div class="container">
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>
+
+</div>

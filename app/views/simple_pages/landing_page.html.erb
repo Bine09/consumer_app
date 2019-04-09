@@ -14,6 +14,7 @@
   <div class="carousel-item <%= " active" if product == @products.first %>">
 
       <%= image_tag(product.image_url, class: 'img-fluid') unless product.image_url.nil?%>
+<br>
 
     <div class="carousel-caption d-none d-md-block">
       <%= link_to product.name, product %>

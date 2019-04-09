@@ -1,8 +1,23 @@
+<div class="container">
+
 <h1>Contact</h1>
 <!-- <p>Find me in app/views/simple_pages/contact.html.erb</p> -->
 
 <%= flash[:notice] %>
 
+
+  <div class="card-header bg-warning contact">
+    <h4>Bike Berlin GmbH</h4>
+    </div>
+      <div class="card-body bg-light contact">
+
+      <p>Velo Road 123</p>
+      <p>32133 Berlin</p>
+      <p>Phone: 030 2562414663</p>
+</div>
+
+<br>
+<br>
 <%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
 <div class="jumbotron">
   <div class="form-group">
@@ -22,17 +37,5 @@
 </div>
 
 
-<div class="card">
-  <div class="card-header bg-warning">
-<h4>Bike Berlin GmbH</h4>
-</div>
-  <div class="card-body bg-light">
 
-  <p>Velo Road 123</p>
-  <p>32133 Berlin</p>
-  <p>Phone: 030 2562414663</p>
-
-
-
-</div>
 </div>
