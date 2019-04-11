@@ -76,3 +76,5 @@ end
 gem 'rails-controller-testing'
 
 gem 'stripe'
+
+gem 'byebug', platform: [:mri, :mingw, :x64_mingw]
