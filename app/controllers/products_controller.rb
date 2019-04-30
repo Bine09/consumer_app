@@ -2,7 +2,7 @@
 
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]  #gives data to actions
-  load_and_authorize_resource
+  load_and_authorize_resource #filter method to allow cancancan to authorize access for the controllers' actions. Otherwise, your authorization checks won't trigger.
   # GET /products
   # GET /products.json
   def index
