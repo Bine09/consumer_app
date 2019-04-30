@@ -1,6 +1,6 @@
 class Product < ApplicationRecord  #means that your product class is a subclass of, or inherits from, the ApplicationRecord class.
 
-  has_many :comments
+  has_many :comments,  dependent: :destroy  #means, that when a product is deleted the comments have to be, too.
   validates :name, presence: true  #a validation to the Product model that requires all new products to have a name provided
 
 
@@ -16,7 +16,7 @@ class Product < ApplicationRecord  #means that your product class is a subclass 
 
 
   def highest_rating_comment
-  comments.rating_desc.first
+  comments.rating_desc.first    #methods for the comments of the special product have to be later shown in the view (just showing one with the hightest/ lowest points)
   end
 
   def lowest_rating_comment

@@ -1,11 +1,23 @@
 class CommentsController < ApplicationController
-  load_and_authorize_resource
-  def create
+  load_and_authorize_resource     #method in your controller to load the resource into an instance variable and authorize it automatically for every action in that controller. Authorization!!! cancancan gem
+
+def create
   @product = Product.find(params[:product_id])
+  @comments = @product.comments.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")  #paginate comments with default value 3
   @comment = @product.comments.new(comment_params)
   @comment.user = current_user
-  @comment.save
-  redirect_to product_path(@product)
+
+
+  respond_to do |format| # a method on the superclass ActionController.
+    if @comment.save
+      format.html { redirect_to @product, notice: 'Review was created successfully.' }
+      format.json { render :show, status: :created, location: @product }
+    else
+      format.html { render :template => "products/show", alert: 'Review was not saved successfully.' }  #Rails knows that this view belongs to a different controller (here product controller) because of the embedded slash character in the string
+      format.json { render json: @comment.errors, status: :unprocessable_entity }
+    end
+  end
+
   end
 
   def destroy           #we need to retrieve the product record from the comment before we delete it, and redirect the user to that page
@@ -15,10 +27,6 @@ class CommentsController < ApplicationController
     redirect_to product
   end
 
-  # 
-  # def new
-  #  @newcomment=Comment.new
-  #  end
 
 
 private

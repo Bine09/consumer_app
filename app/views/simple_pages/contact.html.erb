@@ -6,10 +6,10 @@
 <%= flash[:notice] %>
 
 
-  <div class="card-header bg-warning contact">
+  <div class="card-header bg-warning contact rounded shadow-lg">
     <h4>Bike Berlin GmbH</h4>
     </div>
-      <div class="card-body bg-light contact">
+      <div class="card-body bg-light contact rounded shadow-lg">
 
       <p>Velo Road 123</p>
       <p>32133 Berlin</p>
@@ -19,7 +19,7 @@
 <br>
 <br>
 <%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
-<div class="jumbotron">
+<div class="jumbotron bg-secondary border border-muted shadow-lg">
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %>

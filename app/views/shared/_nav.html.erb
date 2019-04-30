@@ -27,11 +27,11 @@
       <%= link_to "Contact", simple_pages_contact_path, class:"font-weight-bold text-secondary" %>
     </li>
 
-    <li class="nav-item btn">
+    <li class="nav-item btn ">
       <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
       <%# <%= form.label :q, 'Search:' %>
       <%= form.text_field :q, id: 'q', value: params[:q] %>
-      <%= form.submit'Find', class:'btn btn-outline-secondary btn-sm' %>
+      <%= form.submit'Find', class:'btn btn-outline-secondary btn-sm shadow-sm' %>
     <% end %>
     </li>
 

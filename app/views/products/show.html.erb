@@ -1,6 +1,5 @@
 <!-- shows product details  -->
 
-<p id="notice"><%= notice %></p>
 
 
 <div class="jumbotron ">
@@ -51,7 +50,7 @@
   <div class="row">
     <div class="col-sm">
   <%= form_with(url: '/payments/create') do |form| %>
-  <%= hidden_field :product_id, value: @product.id %>   
+  <%= hidden_field :product_id, value: @product.id %>
   <%= render partial: "devise/shared/stripe_checkout_button" %>
   <% end %>
     </div>
@@ -97,7 +96,7 @@
     <div class="container">
       <div class="row">
       <div class="col">
-      <%= render 'new_comment' %>
+  <%= render 'comments/form' %>  <!-- render form in folder comments-->
       </div>
 
       <div class="col">
@@ -107,7 +106,7 @@
               </div>
         </div>
 
-      <%= render 'comments' %>
+      <%= render 'comments/comments' %>
 
 
 

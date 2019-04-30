@@ -25,7 +25,7 @@ footer{
 
 .jumbotron{
   max-width: 800px;
-  min-width: 280px;
+  min-width: auto;
   margin:auto;
   margin-bottom: 2%;
 }
@@ -81,4 +81,11 @@ width:40%;
 
 .diverselinkslogin {
   color:white;
+}
+
+.card-header{
+  min-width: 60%;
+}
+.card-body{
+  min-width: 60%;
 }

@@ -1,7 +1,7 @@
    # each action corresponds to an HTML file in the views with the same name!!!
 
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]  #gives data to actions
   load_and_authorize_resource
   # GET /products
   # GET /products.json
@@ -25,10 +25,12 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id]) #shows data stored in database
     @comments = @product.comments.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")  #paginate comments with default value 3
+    @comment = @product.comments.build
   end
 
-  
+
 
 
   # GET /products/new
