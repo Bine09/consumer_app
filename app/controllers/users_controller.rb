@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]    #This type of method call is called a callback. The before_action part is called a filter.
   load_and_authorize_resource                                         #What it means is, before any action is run in this controller, call the method set_user.
                                                                       #The next parameter means that it should only be run for the actions inside that array: show, edit, update, and destroy.
