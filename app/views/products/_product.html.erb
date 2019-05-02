@@ -5,6 +5,7 @@
 <p id="imageStyle"><%= image_tag(product.image_url, class: "img-fluid img-thumbnail") unless product.image_url.nil? %></p>
 <!-- added placeholder for imageurl that are in the folder images-->
 <strong id="bikeprice"><%= product.price %>,-€</strong>
+<% logger.debug "Product: #{product.name}" %>
 <br>
 <br>
 <button class="btn btn-light btn-sm" type="button"><%= link_to 'Show', product %></button>

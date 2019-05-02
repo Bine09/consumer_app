@@ -10,8 +10,13 @@ class ProductsController < ApplicationController
     search_term = params[:q]
     @products = Product.search(search_term)
      # return our filtered list here
+     logger.debug "Amount Products: #{@products.count} found for #{search_term}"
+
    else
+     # byebug   uncomment this in order to break
      @products = Product.all
+      logger.debug "Amount Products: #{@products.count}"
+
    end
 
     # redirect_to simple_pages_landing_page_path
