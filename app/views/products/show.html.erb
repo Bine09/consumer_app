@@ -35,7 +35,7 @@
 
   <div class="row">
     <div class="col-sm">
-    <p id="imagedetailsite"><%= image_tag(@product.image_url, class: "img-fluid img-thumbnail") unless @product.image_url.nil? %></p>
+    <p id="imagedetailsite"><%= image_tag(@product.image_url, class: "img-fluid img-thumbnail img-zoom",  data_zoom_image: image_path(@product.image_url)) unless @product.image_url.nil? %></p>
     </div>
   </div>
 

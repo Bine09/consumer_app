@@ -1,4 +1,6 @@
 $(document).on('turbolinks:load', function(){
+
+    $(".img-zoom").elevateZoom();
     $('.rating').raty({
   starHalf: '<%= asset_path 'star-half.png' %>',
   starOff: '<%= asset_path 'star-off.png' %>',
@@ -14,7 +16,13 @@ $('.rated').raty({
     score: function() {
       return $(this).attr('data-score');
     }
+
+
+
+
   });
 
   $(".alert").delay(1000).fadeOut(1000);
+
+
 });
