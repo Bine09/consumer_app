@@ -18,7 +18,8 @@
 
 <% end %>
 
-<%= form_with(model: [ @product, @comment ], local: true) do |f| %>
+<%= form_with(model: [ @product, @comment ], id:'new_comment') do |f|%>
+<!-- form_with is a helper that assists with writing forms. By default, form_with assumes that your form will be using Ajax. You can opt out of this behavior by passing the :local option form_with. -->
     <p id="notice"><%= notice %></p>
 
         <p><h3>Add a review</h3>

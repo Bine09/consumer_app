@@ -1,14 +1,11 @@
-$(document).on('turbolinks:load', function(){
-
-    $(".img-zoom").elevateZoom();
-    $('.rating').raty({
-  starHalf: '<%= asset_path 'star-half.png' %>',
-  starOff: '<%= asset_path 'star-off.png' %>',
-  starOn: '<%= asset_path 'star-on.png' %>',
-  scoreName: 'comment[rating]'
+var refreshRating = function() {
+  $('.rating').raty({
+    starHalf: '<%= asset_path 'star-half.png' %>',
+    starOff: '<%= asset_path 'star-off.png' %>',
+    starOn: '<%= asset_path 'star-on.png' %>',
+    scoreName: 'comment[rating]'
   });
-
-$('.rated').raty({
+    $('.rated').raty({
     starHalf: '<%= asset_path 'star-half.png' %>',
     starOff: '<%= asset_path 'star-off.png' %>',
     starOn: '<%= asset_path 'star-on.png' %>',
@@ -16,13 +13,18 @@ $('.rated').raty({
     score: function() {
       return $(this).attr('data-score');
     }
-
-
-
-
   });
+};
 
-  $(".alert").delay(1000).fadeOut(1000);
+$(document).on('turbolinks:load', function() {
+    refreshRating();
 
+    $('.img-zoom').elevateZoom();
 
+      $(".alert").delay(1000).fadeOut(1000);
+});
+
+$(document).on('ajax:success', function() {
+    refreshRating();
+    $(".alert").delay(1000).fadeOut(1000);
 });

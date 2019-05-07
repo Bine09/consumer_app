@@ -1,0 +1,19 @@
+
+<% if @comment.errors.any? %>
+
+$("#new_comment").html("<%= j render 'comments/form' %>");
+
+<% else %>
+
+$("#new_comment").html("Thank you for your review!");
+
+// manipulating the current page: add the newly created comment at the beginning of reviews list
+// j makes the "rendered" html data a string that can be used in jquery
+// Because we named the partial _comment.html.erb inside our views/comments folder, we can just use Rails' short form @comment.
+$('.product-reviews').prepend("<%= j render @comment %>");
+
+// to update the average rating (needed because we added a  new comment with a new rating value that changed the average)
+// Because we're using the Raty plugin, we need to make some small additions.
+("#average-rating").attr('data-score', "<%= @product.average_rating %>");
+
+<% end %>

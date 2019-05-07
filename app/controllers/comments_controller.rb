@@ -12,9 +12,11 @@ def create
     if @comment.save
       format.html { redirect_to @product, notice: 'Review was created successfully.' }
       format.json { render :show, status: :created, location: @product }
+      format.js  #Whenever you make an AJAX request, Rails will check your controller for a respond_to :js to figure out whether or not you allow access through AJAX
     else
       format.html { render :template => "products/show", alert: 'Review was not saved successfully.' }  #Rails knows that this view belongs to a different controller (here product controller) because of the embedded slash character in the string
       format.json { render json: @comment.errors, status: :unprocessable_entity }
+      format.js 
     end
   end
 
