@@ -7,27 +7,16 @@
 
  <%= @test_variable %>
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Color</th>
-      <th>Price in €</th>
-      <th>Image url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead> -->
 
-<!-- This is a basic Ruby loop. @products is an instance variable that contains an array of several products.
-It's been defined in the controller, which is why you can access it. .each  -->
-<!-- will loop through all the products and run the code before the -->
-<!--  < % end %> for each product that exists. -->
 <div class="container-fluid" id="containerProductoverview">
   <div class="row" >
-    <%= render @products %>  <!-- render _product.html.erb for each product in products (loop) -->
+    
+    <% cache(cache_key_for_products) do %> <!--(Russian Doll/Fragment) Caching chapter 6.10-->
+      <%= render @products %>  <!-- render _product.html.erb for each product in products (loop) -->
+    <% end %>
+
+    </div>
       </div>
-      </div>
 
 
 <br>
@@ -35,22 +24,5 @@ It's been defined in the controller, which is why you can access it. .each  -->
 <br>
 <br>
 
-<!--   <tbody>
-    <%# @products.each do |product| %>
-      <tr>
-        <td><%#= product.name %></td>
-        <td><%#= product.description %></td>
-        <td><%#= product.color %></td>
-        <td><%#= product.price %></td>
-        <td><%#= product.image_url %></td>
-        <td><%#= link_to 'Show', product %></td>
-        <td><%#= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%# end %>
-  </tbody>
-</table>
-
-<br>-->
 
 <button class="btn btn-warning btn-sm" type="button"><%= link_to 'New Product', new_product_path %></button>
