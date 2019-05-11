@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <% end %>
+
 
   <div class="row">
     <div class="col-sm">
@@ -51,8 +51,8 @@
   <div class="row">
     <div class="col-sm">
   <%= form_with(url: '/payments/create') do |form| %>
-  <%= hidden_field :product_id, value: @product.id %>
-  <%= render partial: "devise/shared/stripe_checkout_button" %>
+    <%= hidden_field :product_id, value: @product.id %>
+    <%= render partial: "devise/shared/stripe_checkout_button" %>
   <% end %>
     </div>
   </div>
@@ -61,25 +61,25 @@
 
   <!-- if there is no comment highest_rating_comment will be nil. If so highest_rating_comment.body would crash.  -->
   <% if @product.highest_rating_comment.nil? %>
-  <div class="row">
-      <div class="col-sm">
-      <strong><i class="far fa-comment-alt"></i> No Comments!</strong>
+    <div class="row">
+        <div class="col-sm">
+        <strong><i class="far fa-comment-alt"></i> No Comments!</strong>
+      </div>
     </div>
-  </div>
   <% else %>
-  <div class="row">
-    <div class="col-sm">
-      <strong><i class="far fa-comment-alt"></i> Highest rating comment:</strong>
-      <%= @product.highest_rating_comment.body %>
+    <div class="row">
+      <div class="col-sm">
+        <strong><i class="far fa-comment-alt"></i> Highest rating comment:</strong>
+        <%= @product.highest_rating_comment.body %>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm">
-      <strong><i class="far fa-comment-alt"></i> Lowest rating comment:</strong>
-      <%= @product.lowest_rating_comment.body %>
+    <div class="row">
+      <div class="col-sm">
+        <strong><i class="far fa-comment-alt"></i> Lowest rating comment:</strong>
+        <%= @product.lowest_rating_comment.body %>
+      </div>
     </div>
-  </div>
   <% end %>
 
     <div class="row">
@@ -118,3 +118,4 @@
   </div>
 </div>
 </div>
+<% end %>

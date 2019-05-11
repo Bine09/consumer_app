@@ -10,8 +10,8 @@
 
 <div class="container-fluid" id="containerProductoverview">
   <div class="row" >
-    
-    <% cache(cache_key_for_products) do %> <!--(Russian Doll/Fragment) Caching chapter 6.10-->
+
+    <% cache (cache_key_for_products) do %> <!--(Russian Doll/Fragment) Caching chapter 6.11-->
       <%= render @products %>  <!-- render _product.html.erb for each product in products (loop) -->
     <% end %>
 
