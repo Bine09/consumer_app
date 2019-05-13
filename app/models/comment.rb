@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  belongs_to :product, touch: true #
+  belongs_to :product, touch: true # touch true: updated_at of product will be set if comments of this product are changed/added/removed.
 
   scope :rating_desc, -> { order(rating: :desc) }
   scope :rating_asc, -> { order(rating: :asc) }
