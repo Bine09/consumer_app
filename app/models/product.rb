@@ -16,8 +16,10 @@ class Product < ApplicationRecord  #means that your product class is a subclass 
 
 
   def highest_rating_comment
-  comments.rating_desc.first    #methods for the comments of the special product have to be later shown in the view (just showing one with the hightest/ lowest points)
-  end
+     Rails.cache.fetch([cache_key, __method__]) do
+       comments.rating_desc.first    #methods for the comments of the special product have to be later shown in the view (just showing one with the hightest/ lowest points)
+     end
+   end
 
   def lowest_rating_comment
   comments.rating_asc.first
