@@ -18,8 +18,8 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
-    #config.cache_store = :memory_store
-    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache'
+    config.cache_store = :memory_store
+    # config.cache_store = :redis_store, 'redis://localhost:6379/0/cache'
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
@@ -63,5 +63,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.sass.preferred_syntax = :scss
+
+  config.app_generators.javascript_engine = :javascript  #tells the rails generator to generate plain JavaScript files instead of CoffeeScript files
+
 
 end

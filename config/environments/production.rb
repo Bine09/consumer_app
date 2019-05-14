@@ -109,6 +109,9 @@ Rails.application.configure do
 
   # Rails.logger.level = 2
 
+  #we need to allow ActionCable requests on production...
+  config.web_socket_server_url = "wss://bikebikebike.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://bikebikebike.herokuapp.com', 'http://bikebikebike.herokuapp.com']
 
 
 end

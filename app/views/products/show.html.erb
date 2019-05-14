@@ -100,7 +100,9 @@
   <%= render 'comments/form' %>  <!-- render form in folder comments-->
       </div>
 
+
       <div class="col">
+        <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
           <div class="card">
                 <div class="card-header bg-warning">
                 <p><%= will_paginate @comments, class: 'bg-warning' %></p>
