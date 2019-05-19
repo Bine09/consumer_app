@@ -10,7 +10,8 @@ class Comment < ApplicationRecord
   validates :product, presence: true
   validates :rating, numericality: { only_integer: true }, presence: true
 
-
+  after_create_commit { CommentUpdateJob.perform_later(self, self.user) } # after_create_commit will run any code between the { } parentheses after a comment has been created.
+  #perform_later will enqueue the job and run it when it's its turn (after all previously enqueued jobs)
 
 
   #Because every comment record should be saved with a user ID, a product ID, and a message, it's a good idea to validate the presence of all of those attributes

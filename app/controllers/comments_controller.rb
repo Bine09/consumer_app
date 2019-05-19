@@ -6,11 +6,16 @@ def create
   @comments = @product.comments.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")  #paginate comments with default value 3
   @comment = @product.comments.new(comment_params)
   @comment.user = current_user
+  @user = current_user
+
 
 
   respond_to do |format| # a method on the superclass ActionController.
     if @comment.save
-      ActionCable.server.broadcast 'product_channel', comment: @comment, average_rating: @comment.product.average_rating
+      # ActionCable.server.broadcast 'product_channel', comment: @comment, average_rating: @comment.product.average_rating
+      # ProductChannel.broadcast_to @product.id, comment: @comment, average_rating: @product.average_rating
+      #ProductChannel.broadcast_to @product.id, comment: CommentsController.render(partial: 'comments/comment', locals: {comment: @comment}), average_rating: @product.average_rating
+      # ProductChannel.broadcast_to @product.id, comment: CommentsController.render(partial: 'comments/comment', locals: {comment: @comment, current_user: current_user}), average_rating: @product.average_rating
       format.html { redirect_to @product, notice: 'Review was created successfully.' }
       format.json { render :show, status: :created, location: @product }
       format.js  #Whenever you make an AJAX request, Rails will check your controller for a respond_to :js to figure out whether or not you allow access through AJAX
