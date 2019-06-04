@@ -8,99 +8,112 @@ describe ProductsController, type: :controller do
     @admin = FactoryBot.create(:admin)
   end
 
-      context 'GET #index' do
-        it 'should success and renders the index template' do
-          get :index
-          expect(response).to be_ok
-          expect(response).to render_template('index')
-        end
-      end
-
-
-      context 'GET #show' do
-        it 'should success and render single product' do
-         get :show, params: { id: @product.id }
-         expect(response).to be_ok
-         expect(response).to render_template('show')
-        end
-      end
-
-
-      context 'GET #new while user' do
-        before do
-          sign_in @user
-        end
-        it 'does NOT rendering the product new page' do
-          get :new, params: { id: @product.id }
-          expect(response).to redirect_to '/'
-        end
-      end
-
-
-      context 'GET #new while admin' do
-        before do
-          sign_in @admin
-        end
-        it 'rendering the product new page' do
-          get :new, params: { id: @product.id }
-          expect(response).to be_ok
-          expect(response).to render_template('new')
-        end
-      end
-
-
-      context 'POST #create when not admin' do
-      before do
-        sign_in @user
-      end
-      it 'cannot create new product' do
-        expect{
-           post :create, params: { product:  FactoryBot.attributes_for(:product) }
-         }.to change(Product,:count).by(0)
-      end
+  context 'GET #index' do
+    it 'should success and renders the index template' do
+      get :index
+      expect(assigns(:products)).to eq(Product.all)
+      expect(response).to be_ok
+      expect(response).to render_template('index')
     end
+    it 'index with search teram should success and renders the index template with found product' do
+      @product.name = "TestBike"
+      @product.save
+      get :index, params: { q: "estBik" }
+      expect(assigns(:products)).to eq(Product.search("estBik"))
+      expect(assigns(:products).first).to eq(@product)
+      expect(response).to be_ok
+      expect(response).to render_template('index')
+    end
+    it 'index with search teram should success and renders the index template with empty product list if no product found' do
+      @product.name = "TestBike"
+      @product.save
+      get :index, params: { q: "asdfasfasdfasdfsa" }
+      expect(assigns(:products)).to eq(Product.search("asdfasfasdfasdfsa"))
+      expect(assigns(:products).first).to eq(nil)
+      expect(response).to be_ok
+      expect(response).to render_template('index')
+    end
+  end
+
+  context 'GET #show' do
+    it 'should success and render single product' do
+     get :show, params: { id: @product.id }
+     expect(response).to be_ok
+     expect(response).to render_template('show')
+    end
+  end
 
 
-    context 'POST #create when admin' do
+  context 'GET #new while user' do
+    before do
+      sign_in @user
+    end
+    it 'does NOT rendering the product new page' do
+      get :new, params: { id: @product.id }
+      expect(response).to redirect_to '/'
+    end
+  end
+
+
+  context 'GET #new while admin' do
+    before do
+      sign_in @admin
+    end
+    it 'rendering the product new page' do
+      get :new, params: { id: @product.id }
+      expect(response).to be_ok
+      expect(response).to render_template('new')
+    end
+  end
+
+
+  context 'POST #create when not admin' do
+    before do
+      sign_in @user
+    end
+    it 'cannot create new product' do
+      expect{
+         post :create, params: { product:  FactoryBot.attributes_for(:product) }
+       }.to change(Product,:count).by(0)
+    end
+  end
+
+  context 'POST #create when admin' do
     before do
       sign_in @admin
     end
     it 'can create new product' do
       expect{
-         post :create, params: { product:  FactoryBot.attributes_for(:product) }
-           }.to change(Product,:count).by(1)
-      end
+        post :create, params: { product:  FactoryBot.attributes_for(:product) }
+         }.to change(Product,:count).by(1)
     end
+  end
 
 
-    context 'DELETE #destroy when admin' do
-     before do
-       sign_in @admin
+  context 'DELETE #destroy when admin' do
+   before do
+     sign_in @admin
+   end
+  it 'should delete product' do
+     expect { delete :destroy, params: { id: @product.id } }.to change(Product, :count).by(-1)
+     expect(flash[:notice]).to eq 'Product was successfully destroyed.'
+    end
+ end
+
+context 'PUT #update when admin' do
+  before do
+    sign_in @admin
+  end
+ it 'should update product' do
+     params = {
+      name: 'TestBike',
+      price: 450
+     }
+     put :update, params: { id: @product.id, product: params }
+     @product.reload
+     params.keys.each do |key|
+      expect(@product.attributes[key.to_s]).to eq params[key]
      end
-    it 'should delete product' do
-       expect { delete :destroy, params: { id: @product.id } }.to change(Product, :count).by(-1)
-       expect(flash[:notice]).to eq 'Product was successfully destroyed.'
-      end
-     end
-
-
-    context 'PUT #update when admin' do
-      before do
-        sign_in @admin
-      end
-     it 'should update product' do
-       params = {
-        name: 'TestBike',
-        price: 450
-       }
-       put :update, params: { id: @product.id, product: params }
-       @product.reload
-       params.keys.each do |key|
-        expect(@product.attributes[key.to_s]).to eq params[key]
-       end
-      end
-
-
-
-end
+    end
+  end
 end

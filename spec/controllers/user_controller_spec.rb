@@ -28,7 +28,7 @@ end
       context 'when a user is not logged in' do
         it 'redirects to login' do
           get :show, params: { id: @user.id }            #a Show page always needs an ID so that we know which Show page to access
-          expect(response).to redirect_to(root_path)  # expect it to redirect back to new_user_session_path
+          expect(response).to redirect_to(new_user_session_path)  # expect it to redirect back to new_user_session_path
         end
       end
 
